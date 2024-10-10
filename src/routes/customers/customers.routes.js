@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { CustomersController } from '../../controllers/reservations/customers.controller.js'
+import { CustomersController } from '../../controllers/customers/customers.controllers.js'
 
 export const createCustomersRouter = ({ customersModel }) => {
   const customersRouter = Router()

@@ -7,22 +7,26 @@ export class ReservationsModel {
   }
 
   async getById (id) {
-    const data = await ReservationsSchema.findOne({ id })
+    const data = await ReservationsSchema.findOne({ _id: id })
     return data
   }
 
   async post (obj) {
-    const data = await ReservationsSchema(obj).save()
+    const data = await new ReservationsSchema(obj).save()
     return data
   }
 
   async put (id, obj) {
-    const data = await ReservationsSchema.findOneAndUpdate({ id }, obj)
+    const data = await ReservationsSchema.findOneAndUpdate(
+      { _id: id },
+      obj,
+      { new: true }
+    )
     return data
   }
 
   async delete (id) {
-    const data = await ReservationsSchema.findOneAndDelete({ id })
+    const data = await ReservationsSchema.findOneAndDelete({ _id: id })
     return data
   }
 }
